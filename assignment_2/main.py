@@ -31,45 +31,45 @@ k_size = 15
 
 def padding(image, border_width):
     padded_image = cv2.copyMakeBorder(image, border_width, border_width, border_width, border_width, cv2.BORDER_REFLECT)
-    cv2.imwrite('lena-2-padding.png', padded_image)
+    cv2.imwrite(r'solutions\lena-2-padding.png', padded_image)
 
 
 def crop(image, x_0, x_1, y_0, y_1, image_width, image_height):
     cropped_image = image[x_0:image_width - x_1, y_0:image_height - y_1]
-    cv2.imwrite('lena-2-crop.png', cropped_image)
+    cv2.imwrite(r'solutions/lena-2-crop.png', cropped_image)
 
 def resize(image, width, height):
     resized_image = cv2.resize(image, (width, height))
-    cv2.imwrite('lena-2-resize.png', resized_image)
+    cv2.imwrite(r'solutions/lena-2-resize.png', resized_image)
 
 
 def copy(image, emptyPictureArray):
     emptyPictureArray[0:image_height, 0:image_width] = image
-    cv2.imwrite('lena-2-copy.png', emptyPictureArray)
+    cv2.imwrite(r'solutions/lena-2-copy.png', emptyPictureArray)
 
 def grayscale(image):
     grayscale_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    cv2.imwrite('lena-2-grayscale.png', grayscale_image)
+    cv2.imwrite(r'solutions/lena-2-grayscale.png', grayscale_image)
 
 def hsv(image):
     hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-    cv2.imwrite('lena-2-hsv.png', hsv_image)
+    cv2.imwrite(r'solutions/lena-2-hsv.png', hsv_image)
 
 def hue_shifting(image, emptyPictureArray, hue):
     shifting = image.astype(np.uint16) + hue
     emptyPictureArray[:] = shifting.astype(np.uint8)
-    cv2.imwrite('lena-2-hue_shifting.png', emptyPictureArray)
+    cv2.imwrite(r'solutions/lena-2-hue_shifting.png', emptyPictureArray)
 
 def smoothing(image, k_size):
     smooth_image = cv2.GaussianBlur(image, (k_size, k_size), cv2.BORDER_DEFAULT)
-    cv2.imwrite('lena-2-smoothing.png', smooth_image)
+    cv2.imwrite(r'solutions/lena-2-smoothing.png', smooth_image)
 
 def rotation(image, rotation_angle):
     if rotation_angle == 90:
         rotate_image = cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)
     elif rotation_angle == 180:
         rotate_image = cv2.rotate(image, cv2.ROTATE_180)
-    cv2.imwrite('lena-2-rotate.png', rotate_image)
+    cv2.imwrite(r'solutions/lena-2-rotate.png', rotate_image)
 def main():
     padding(image, border_width)
     crop(image, x_1, x_0, y_1, y_0, image_width, image_height)
