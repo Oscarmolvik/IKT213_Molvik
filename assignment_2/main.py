@@ -21,7 +21,7 @@ width = 20
 height = 20
 
 # Manual Copy
-emptyPictureArray = np.zeros((image_height, image_width, 3), dtype=np.uint8)
+emptyPictureArray = np.zeros((image_height, image_width, 3), np.uint8)
 
 # hue
 hue = 50
