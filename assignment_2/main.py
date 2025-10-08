@@ -17,8 +17,8 @@ y_0 = 130
 y_1 = 130
 
 # Resize
-width = 20
-height = 20
+width = 200
+height = 200
 
 # Manual Copy
 emptyPictureArray = np.zeros((image_height, image_width, 3), np.uint8)
@@ -56,9 +56,9 @@ def hsv(image):
     cv2.imwrite(r'solutions/lena-2-hsv.png', hsv_image)
 
 def hue_shifting(image, emptyPictureArray, hue):
-    shifting = image.astype(np.uint16) + hue
-    emptyPictureArray[:] = shifting.astype(np.uint8)
-    cv2.imwrite(r'solutions/lena-2-hue_shifting.png', emptyPictureArray)
+    shifted = cv2.add(image, hue)
+    emptyPictureArray[:] = shifted
+    cv2.imwrite(r"solutions/lena-2-hue_shifted.png", emptyPictureArray)
 
 def smoothing(image, k_size):
     smooth_image = cv2.GaussianBlur(image, (k_size, k_size), cv2.BORDER_DEFAULT)
